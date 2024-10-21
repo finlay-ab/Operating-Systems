@@ -4,9 +4,17 @@
 
 /* Read a line of characters from stdin. */
 int getcmd(char *buf, int nbuf) {
+  //code modified from sh.c
+  //writes prompt
+  write(2, ">>> ", 2);
+  //clears buf
+  memset(buf, 0, nbuf);
+  //reads line from standard input
+  gets(buf, nbuf);
 
-  // ##### Place your code here
-
+  //checkss if buf is empty/ end of read
+  if(buf[0] == 0) 
+    return -1;
   return 0;
 }
 
